@@ -2,11 +2,11 @@
 
 class Product
 {
-    protected $nome;
-    protected $prezzo;
-    protected $genere;
-    protected $picture;
-    protected $categoria;
+    public $nome;
+    public $prezzo;
+    public $genere;
+    public $picture;
+    public $categoria;
 
 
     function __construct($nome, $prezzo, $genere, $picture, $categoria)

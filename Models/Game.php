@@ -1,20 +1,12 @@
 <?php
 
-class Game
+class Game  extends Product
 {
-    protected $nome;
-    protected $prezzo;
-    protected $genere;
-    protected $picture;
-    protected $categoria;
+    public $peso;
 
-
-    function __construct($nome, $prezzo, $genere, $picture, $categoria)
+    function __construct($nome, $prezzo, $genere, $picture, $categoria, $peso)
     {
-        $this->nome = $nome;
-        $this->prezzo = $prezzo;
-        $this->genere = $genere;
-        $this->picture = $picture;
-        $this->categoria = $categoria;
+        parent::__construct($nome, $prezzo, $genere, $picture, $categoria);
+        $this->peso = $peso;
     }
 }
