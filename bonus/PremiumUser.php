@@ -13,11 +13,16 @@ class PremiumUser extends User
         $this->subscription = $subscription;
     }
 
-    public function setPassword($newPassword)
+    public function setDiscount()
     {
 
-        if ($subscription = true) {
-            $sconto = 20;
+        if ($this->subscription = true) {
+            $this->sconto = 20;
         }
+    }
+
+    public function getDiscount()
+    {
+        return $this->sconto;
     }
 }
