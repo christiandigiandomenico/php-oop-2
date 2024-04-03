@@ -1,3 +1,20 @@
+<?php
+
+require './Models/Food.php';
+require './Models/Game.php';
+require './Models/Product.php';
+
+$croccantini = new Food("Croccantini Plus", "19.99", "Cibo", "./img/crocchetta.webp", "Cane");
+$cibo = new Food("Cibo per cani", "7.99", "Cibo", "./img/cibocani.jpg", "Gatto");
+
+$pallina = new Game("Palla da gioco", "5.99", "Giocattolo", "./img/palla.jpg", "Gatto");
+$osso = new Game("Osso Masticabile", "6.50", "Giocattolo", "./img/osso.jpg", "Cane");
+
+$cuccia = new Product("Cuccia per cane", "90.00", "Prodotto", "./img/cucciacane.jpg", "Cane");
+$cuccia2 = new Product("Cuccia per gatto", "24.00", "Prodotto", "./img/cucciagatto.jpg", "Gatto");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +29,8 @@
 </head>
 
 <body>
+
+
 
 
     <!-- Bootstrap -->
