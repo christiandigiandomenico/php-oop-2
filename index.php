@@ -1,11 +1,14 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 require './Models/Food.php';
 require './Models/Game.php';
 require './Models/Product.php';
 
-$croccantini = new Food("Croccantini Plus", "19.99", "Cibo", "./img/crocchetta.webp", "Cane");
-$cibo = new Food("Cibo per cani", "7.99", "Cibo", "./img/cibocani.jpg", "Gatto");
+$croccantini = new Food("Croccantini Plus", "19.99", "Cibo", "./img/crocchetta.webp", "Cane", "10kg");
+$cibo = new Food("Cibo per cani", "7.99", "Cibo", "./img/cibocani.jpg", "Gatto", "2kg");
 
 $pallina = new Game("Palla da gioco", "5.99", "Giocattolo", "./img/palla.jpg", "Gatto");
 $osso = new Game("Osso Masticabile", "6.50", "Giocattolo", "./img/osso.jpg", "Cane");
@@ -13,7 +16,21 @@ $osso = new Game("Osso Masticabile", "6.50", "Giocattolo", "./img/osso.jpg", "Ca
 $cuccia = new Product("Cuccia per cane", "90.00", "Prodotto", "./img/cucciacane.jpg", "Cane");
 $cuccia2 = new Product("Cuccia per gatto", "24.00", "Prodotto", "./img/cucciagatto.jpg", "Gatto");
 
-var_dump($croccantini)
+
+$foods = [
+    $croccantini,
+    $cibo
+];
+
+$games = [
+    $pallina,
+    $osso
+];
+
+$houses = [
+    $cuccia,
+    $cuccia2
+]
 
 ?>
 
@@ -35,16 +52,53 @@ var_dump($croccantini)
 
     <?php
 
-    foreach ($Food as $foods) {
-
+    foreach ($foods as $food) {
+        //var_dump($product);
+        //echo $product->getPeso();
         echo '<div class="card" style="width: 18rem;">
 <div class="card-body">
-    <h5 class="card-title">' . $foods->nome . '</h5>
-    <h6 class="card-subtitle mb-2 text-body-secondary">' . $foods->prezzo . '</h6>
-    <h6 class="card-subtitle mb-2 text-body-secondary">' . $foods->genere . '</h6>
-    <h6 class="card-subtitle mb-2 text-body-secondary">'
-            . $foods->categoria .
-            '</h6>
+    <h5 class="card-title">' . $product->nome . '</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">' . $product->prezzo . '</h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary">' . $product->genere . '</h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary">' . $product->categoria . '</h6>
+</div>
+</div>';
+    }
+
+    ?>
+
+    <hr>
+
+    <?php
+
+    foreach ($games as $game) {
+        //var_dump($product);
+        //echo $product->getPeso();
+        echo '<div class="card" style="width: 18rem;">
+<div class="card-body">
+    <h5 class="card-title">' . $game->nome . '</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">' . $game->prezzo . '</h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary">' . $game->genere . '</h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary">' . $game->categoria . '</h6>
+</div>
+</div>';
+    }
+
+    ?>
+
+    <hr>
+
+    <?php
+
+    foreach ($house as $house) {
+        //var_dump($product);
+        //echo $product->getPeso();
+        echo '<div class="card" style="width: 18rem;">
+<div class="card-body">
+    <h5 class="card-title">' . $house->nome . '</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">' . $house->prezzo . '</h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary">' . $house->genere . '</h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary">' . $house->categoria . '</h6>
 </div>
 </div>';
     }
