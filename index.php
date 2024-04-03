@@ -13,6 +13,8 @@ $osso = new Game("Osso Masticabile", "6.50", "Giocattolo", "./img/osso.jpg", "Ca
 $cuccia = new Product("Cuccia per cane", "90.00", "Prodotto", "./img/cucciacane.jpg", "Cane");
 $cuccia2 = new Product("Cuccia per gatto", "24.00", "Prodotto", "./img/cucciagatto.jpg", "Gatto");
 
+var_dump($croccantini)
+
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +33,23 @@ $cuccia2 = new Product("Cuccia per gatto", "24.00", "Prodotto", "./img/cucciagat
 <body>
 
 
+    <?php
+
+    foreach ($Food as $foods) {
+
+        echo '<div class="card" style="width: 18rem;">
+<div class="card-body">
+    <h5 class="card-title">' . $foods->nome . '</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">' . $foods->prezzo . '</h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary">' . $foods->genere . '</h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary">'
+            . $foods->categoria .
+            '</h6>
+</div>
+</div>';
+    }
+
+    ?>
 
 
     <!-- Bootstrap -->
