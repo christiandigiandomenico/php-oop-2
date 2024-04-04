@@ -7,15 +7,22 @@ require './Models/Food.php';
 require './Models/Game.php';
 
 
-$croccantini = new Food("Croccantini Plus", "19.99", "Cibo", "./img/crocchetta.webp", "Cane", "10kg");
-$cibo = new Food("Cibo per cani", "7.99", "Cibo", "./img/cibocani.webp", "Gatto", "2kg");
+$croccantini = new Food("Croccantini Plus", "19.99", "Cibo", "./img/crocchetta.webp", "Cane", "10kg", "Grande", "Piccola");
+$cibo = new Food("Cibo per cani", "7.99", "Cibo", "./img/cibocani.webp", "Gatto", "2kg", "Grande", "Piccola");
 
 $pallina = new Game("Palla da gioco", "5.99", "Giocattolo", "./img/palla.webp", "Gatto", "50gr");
 $osso = new Game("Osso Masticabile", "6.50", "Giocattolo", "./img/osso.jpg", "Cane", "100gr");
 
-$cuccia = new Product("Cuccia per cane", "90.00", "Prodotto", "./img/cucciacane.jpg", "Cane");
-$cuccia2 = new Product("Cuccia per gatto", "24.00", "Prodotto", "./img/cucciagatti.webp", "Gatto");
+$cuccia = new Product("Cuccia per cane", "90.00", "Prodotto", "./img/cucciacane.jpg", "Cane", "Grande", "Piccola");
+$cuccia2 = new Product("Cuccia per gatto", "24.00", "Prodotto", "./img/cucciagatti.webp", "Gatto", "Grande", "Piccola");
 
+$error = null;
+try {
+    $croccantini = new Food("Croccantini Plus", "19.99", "Cibo", "./img/crocchetta.webp", "Cane", "10kg", "Grande", "Piccola");
+} catch (Exception $e) {
+
+    $error = "Errore: " . $e->getMessage();
+}
 
 $foods = [
     $croccantini,
@@ -73,6 +80,18 @@ $houses = [
         ?>
 
     </div>
+
+    <?php
+
+    if ($error) {
+    ?>
+        <div class="alert alert-warning" role="alert">
+            <?= $error ?>
+        </div>
+    <?php
+    }
+
+    ?>
 
     <hr>
 
