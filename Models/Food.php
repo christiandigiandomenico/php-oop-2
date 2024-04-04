@@ -1,14 +1,20 @@
 <?php
+
+require_once __DIR__ . "/Traits/Sizeable.php";
 class Food extends Product
 {
+
+    use Sizeable;
 
     protected $peso;
 
 
-    function __construct($nome, $prezzo, $genere, $picture, $categoria, $peso)
+    function __construct($nome, $prezzo, $genere, $picture, $categoria, $peso, $sizeSmall, $sizeBig)
     {
         parent::__construct($nome, $prezzo, $genere, $picture, $categoria);
         $this->peso = $peso;
+        $this->sizeSmall = $sizeSmall;
+        $this->sizeBig = $sizeBig;
     }
 
 
